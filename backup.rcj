@@ -1,0 +1,63 @@
+/NOSD
+/NODD
+:: Below you can add the names of folders you want to exclude
+:: If you put a name here, it will exclude *every* folder with that pattern.
+:: If you want to exclude a specific folder and not just all of them with
+::   same name, you will need to enter the full path like I did for the tufte
+::   folder for example. Most of these are excluded because they are not worth
+::   backing up in my opinion, especially OneDrive which is already online.
+::   The wildcards * and ? aren't supposed to work here, but they do for the
+::   patterns they are listed in below. I'm not sure what this mismatch between
+::   the documentation and actual behaviour means.
+:: If you list a directory that doesn't exist, that's fine - so you don't need
+::   to go delete the extra directories excluded if you don't feel like it.
+/XD
+  .conda
+  .cisco
+  .continuum
+  .idlerc
+  .ipynb_checkpoints
+  .ipython
+  .jupyter
+  .ms-ad
+  .matplotlib
+  AppData
+  3D Objects
+  Anaconda3
+  OneDrive
+  Saved Games
+  personal_codes_python
+  .git
+  .Rproj.user
+  renv
+  win-library
+  x86_64-pc-linux-gnu-library
+  C:\Users\MaTurnbull\Documents\software
+:: Check output
+  *.Rcheck
+  Test
+  *_cache
+  
+/XF
+:: Here you can put the names of specific *files* you don't want to be backed
+::   up, with the same rule as for directories except that ? and * work here.
+:: Please take note of this. Your RData will not be backed up!
+  .RData*
+:: These are log files that are missing on my system and it throws an error.
+  NTUSER.DAT
+  saga_gui
+  3rdplot
+  .condarc
+  ntuser.dat.LOG*
+
+:: Do not include shortcuts
+:: Apparently these are called Junction Points in NTFS
+:: They are equivalent to symlinks
+:: There are several junction points that lead to the network drive so
+:: copying them would make a recursive mess
+/XJ
+
+:: Don't try to backup anything larger than 500 MB
+/MAX:524288000
+  
+/MIR
